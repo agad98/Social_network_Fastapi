@@ -5,9 +5,11 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 import time
 from .config import settings
+import os
 
 #SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
-SQLALCHEMY_DATABASE_URL = f'postgres://{settings.DATABASE_USERNAME}:{settings.DATABASE_PASSWORD}@{settings.DATABASE_HOSTNAME}:{settings.DATABASE_PORT}/{settings.DATABASE_NAME}'
+SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.DATABASE_USERNAME}:{settings.DATABASE_PASSWORD}@{settings.DATABASE_HOSTNAME}:{settings.DATABASE_PORT}/{settings.DATABASE_NAME}'
+#SQLALCHEMY_DATABASE_URL = os.environ['DATABASE_URL']
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
