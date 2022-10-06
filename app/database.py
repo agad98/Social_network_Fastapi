@@ -8,8 +8,8 @@ from .config import settings
 import os
 
 #SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
-SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.DATABASE_USERNAME}:{settings.DATABASE_PASSWORD}@{settings.DATABASE_HOSTNAME}:{settings.DATABASE_PORT}/{settings.DATABASE_NAME}'
-#SQLALCHEMY_DATABASE_URL = os.environ['DATABASE_URL']
+#SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.DATABASE_USERNAME}:{settings.DATABASE_PASSWORD}@{settings.DATABASE_HOSTNAME}:{settings.DATABASE_PORT}/{settings.DATABASE_NAME}'
+SQLALCHEMY_DATABASE_URL = 'postgresql://znrdfgxqfwomik:66002f04b8bc766bc2027a1b3725ff7c68f7a8c217deecc1e642881c2c24684c@ec2-54-86-106-48.compute-1.amazonaws.com:5432/d6e2ep19hfad6t'
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
