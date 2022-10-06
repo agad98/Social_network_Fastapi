@@ -9,8 +9,8 @@ from .config import settings
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 
-SECRET_KEY = settings.secret_key
-ALGORITHM = settings.algorithm
+SECRET_KEY = settings.SECRET_KEY
+ALGORITHM = settings.ALGORITHM
 ACCESS_TOKEN_EXPIRE_MINUTES = settings.ACCESS_TOKEN_EXPIRE_MINUTES
 
 
@@ -41,7 +41,6 @@ def verify_access_token(token: str, credentials_exception):
     raise credentials_exception
 
   return token_data
-
 
 
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(database.get_db)):
