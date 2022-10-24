@@ -1,5 +1,6 @@
 name: Build and Deploy Code
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: ${{ github.actor }} is utilizing GitHub Actions
+
 on: [push, pull_request]
 jobs:
   Build-Depoloy:
@@ -7,5 +8,11 @@ jobs:
     steps:
       - name: pulling git repo
         uses: actions/checkout@v3
-      - name: say hi to Gad
-        run: echo "Hello Gad!!"
+      - name: Install Python version 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: update pip
+        run: python -m pip install --upgrade pip
+      - name: install all dependencies
+        run: pip install -r requirements.txt
