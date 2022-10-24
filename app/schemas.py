@@ -5,8 +5,8 @@ from pydantic.types import conint
 
 
 class UserOut(BaseModel):
-  email: EmailStr
   id: int
+  email: EmailStr
   created_at: datetime
 
   class Config:
