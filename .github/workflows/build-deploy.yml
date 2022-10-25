@@ -1,5 +1,5 @@
 name: Build and Deploy Code
-run-name: Building, Testing, then Deploying, then Building Image
+run-name: Building, Testing, then Deploying to Heroku
 
 on: [push, pull_request]
 
@@ -83,3 +83,13 @@ jobs:
           heroku_app_name: gad-social-network-fastapi
           heroku_email: ahmedmgad65@yahoo.com
 
+      - name: deploy to ubuntu server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USERNAME }}
+          password: ${{ secrets.PROD_PASSWORD }}
+          script: |
+            cd app/src
+            git pull
+            sudo systemctl restart api
